@@ -86,6 +86,14 @@ class ResourceManager {
     _addResource("TextureAtlas", name, url, loader);
   }
 
+  void addTextureAtlasFromBitmapData(String name, BitmapData bitmapData, String source) {
+
+    var loader =
+    TextureAtlas.withLoader(new _TextureAtlasLoaderBitmapData(bitmapData, source));
+
+    _addResource("TextureAtlas", name, '', loader);
+  }
+
   void removeTextureAtlas(String name, {bool dispose:true}) {
     var resourceManagerResource = _removeResource("TextureAtlas", name);
     var textureAtlas = resourceManagerResource?.value;
